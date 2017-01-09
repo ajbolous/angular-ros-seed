@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="jumbotron">
+
+        <v-accordion class="vAccordion--default" multiple>
+
+            <v-pane ng-repeat="node in $ctrl.nodes" expanded="topic.isExpanded">
+                <v-pane-header>
+                    {{node}}
+                </v-pane-header>
+                <v-pane-content>
+                    nothing for now
+                </v-pane-content>
+            </v-pane>
+        </v-accordion>
+    </div>
+</div>

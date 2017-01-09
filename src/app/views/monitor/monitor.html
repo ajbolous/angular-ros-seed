@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="panel" style="background-color:#111; border-color:#111;">
+
+        <div class="panel panel-heading" style="color:#aaa;background-color:#222; border-color:#222;">
+            <h4>Cameras</h4>
+            <toggle style="padding-left:15px;" onstyle="btn-danger" ng-repeat="monitor in $ctrl.cameras" ng-model="monitor.enabled" on="{{monitor.name}}"
+                off="{{monitor.name}}">
+            </toggle>
+        </div>
+
+        <div class="panel-body">
+
+        </div>
+    </div>
+
+    <div class="panel" style="background-color:#111; border-color:#111;">
+
+        <div class="panel panel-heading" style="color:#aaa;background-color:#222; border-color:#222;">
+            <h4>Viewers</h4>
+            <toggle style="padding-left:15px;" onstyle="btn-danger" ng-repeat="monitor in $ctrl.viewers" ng-model="monitor.enabled" on="{{monitor.name}}"
+                off="{{monitor.name}}">
+
+            </toggle>
+        </div>
+
+        <div class="panel-body">
+
+        </div>
+    </div>
+
+</div>

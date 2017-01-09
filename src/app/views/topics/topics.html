@@ -1,0 +1,21 @@
+<div class="container">
+  
+    <div class="jumbotron" style="background-color:#111">
+
+        <v-accordion class="vAccordion--default" multiple>
+
+            <v-pane ng-repeat="topic in $ctrl.topics" expanded="topic.isExpanded">
+                <v-pane-header>
+                    {{topic.getName()}}
+                </v-pane-header>
+                <v-pane-content>
+                    <ros-topic-viewer topic-hdl="topic"></ros-topic-viewer>
+                </v-pane-content>
+            </v-pane>
+
+        </v-accordion>
+
+
+    </div>
+
+</div>
