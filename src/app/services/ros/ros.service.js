@@ -5,10 +5,11 @@
         .module('euclidApp')
         .service('$ros', $ros);
 
-    function $ros($log, $q, RosTopic) {
+    function $ros($log, $q, RosTopic, toastr) {
         var self = this;
         self._ros = initialize('ws:\\' + ROS_IP + ':9090')
         self._isConnected = false;
+        self._topics = {};
 
         function initialize(address) {
             var ros = new ROSLIB.Ros({
@@ -20,11 +21,13 @@
         }
 
         function onConnect() {
+            toastr.success("Connected to ROS");
             this._isConnected = true;
             console.log("ROS IS CONNECTED");
         }
 
         function onClose() {
+            toastr.error("Connected to ROS");
             this._isConnected = false;
             console.log("ROS IS DISCONNECTED");
         }
@@ -35,6 +38,17 @@
 
         function close() {
             return self._ros.close();
+        }
+
+
+        function getTopic(topicName, topicType){
+            if (topicName in self._topics){
+                return self._topics[topicName];
+            }
+
+            var topic = new RosTopic(this, topicName, topicType);
+            self._topics[topName] = topic;
+            return topic;
         }
 
         function fetchNodes() {
