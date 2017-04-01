@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .service('$ros', $ros);
 
     function $ros($log, $q, RosTopic, toastr) {
@@ -41,8 +41,8 @@
         }
 
 
-        function getTopic(topicName, topicType){
-            if (topicName in self._topics){
+        function getTopic(topicName, topicType) {
+            if (topicName in self._topics) {
                 return self._topics[topicName];
             }
 
@@ -71,16 +71,17 @@
 
         function fetchTopics() {
             var d = $q.defer();
-            self._ros.getTopics(function (topics) {
+            self._ros.getTopics(function(topics) {
+                $log.debug(topics);
                 var allTopics = [];
                 var promises = [];
-                topics.forEach(function (topic) {
+                topics.forEach(function(topic) {
                     var promise = $q.defer();
                     promises.push(promise);
-                    fetchTopicType(topic).then(function (type) {
+                    fetchTopicType(topic).then(function(type) {
                         allTopics.push(new RosTopic(self._ros, topic, type));
                     });
-                    $q.all(promises).then(function () { d.resolve(allTopics) });
+                    $q.all(promises).then(function() { d.resolve(allTopics) });
                 });
                 return d.promise;
             });
@@ -99,8 +100,8 @@
         }
 
         return {
-            getRos: function () { return self._ros; },
-            isConnected: function () { return self._isConnected; },
+            getRos: function() { return self._ros; },
+            isConnected: function() { return self._isConnected; },
             fetchNodes: fetchNodes,
             fetchServices: fetchServices,
             fetchTopics: fetchTopics,

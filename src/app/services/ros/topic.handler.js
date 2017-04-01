@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .factory('RosTopic', RosTopic);
 
     function RosTopic($q, $log) {
-        
+
         var RosTopic = function(ros, name, type) {
             this._name = name;
             this._type = type
@@ -19,24 +19,24 @@
             });
         }
 
-        RosTopic.prototype.getName = function(){
+        RosTopic.prototype.getName = function() {
             return this._name;
         }
 
         RosTopic.prototype.publish = function(message) {
-                this._topic.publish(message);
+            this._topic.publish(message);
         }
 
         RosTopic.prototype.subscribe = function() {
             var self = this;
-            this._topic.subscribe(function(message){
-                self._messageHandlers.forEach(function(handler){
+            this._topic.subscribe(function(message) {
+                self._messageHandlers.forEach(function(handler) {
                     handler(message);
                 });
             });
         }
 
-        RosTopic.prototype.onMessage = function(callBack){
+        RosTopic.prototype.onMessage = function(callBack) {
             this._messageHandlers.push(callBack);
         }
         return RosTopic;

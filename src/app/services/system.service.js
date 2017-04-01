@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .service('SystemService', SystemService);
 
     function SystemService($ros, $q) {
@@ -23,7 +23,7 @@
             var request = new ROSLIB.ServiceRequest({
                 pin: pin
             });
-            pinService.callService(request, function (response) {
+            pinService.callService(request, function(response) {
                 d.resolve(response);
             });
             return d.promise;
@@ -35,7 +35,7 @@
                 dir: dir,
                 move: move
             });
-            winService.callService(request, function (response) {
+            winService.callService(request, function(response) {
                 d.resolve(response);
             });
             return d.promise;

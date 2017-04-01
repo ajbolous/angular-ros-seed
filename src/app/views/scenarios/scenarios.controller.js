@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .controller('ScenariosController', ScenariosController);
 
     /** @ngInject */

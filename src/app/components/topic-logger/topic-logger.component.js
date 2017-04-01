@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .component('rosTopicLogger', {
             templateUrl: 'app/components/topic-logger/topic-logger.component.html',
             bindings: {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .component('systemGage', {
             templateUrl: 'app/components/system-gage/gage.component.html',
             bindings: {

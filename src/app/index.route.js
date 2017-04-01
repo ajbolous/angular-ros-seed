@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .config(routeConfig);
 
     /** @ngInject */
@@ -37,6 +37,13 @@
         $routeProvider.when('/monitor', {
             templateUrl: 'app/views/monitor/monitor.html',
             controller: 'MonitorController',
+            controllerAs: '$ctrl'
+        });
+
+
+        $routeProvider.when('/map', {
+            templateUrl: 'app/views/map/map.html',
+            controller: 'MapController',
             controllerAs: '$ctrl'
         });
     }

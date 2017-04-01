@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .config(config);
 
     /** @ngInject */

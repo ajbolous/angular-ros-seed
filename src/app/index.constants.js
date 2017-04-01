@@ -1,9 +1,9 @@
 /* global malarkey:false, toastr:false, moment:false */
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .constant('malarkey', malarkey)
         .constant('toastr', toastr)
         .constant('moment', moment);

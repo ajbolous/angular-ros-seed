@@ -1,12 +1,12 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('euclidApp')
+        .module('opmopApp')
         .factory('RosService', RosService);
 
     function RosService($log, $ros) {
-        var RosService = function (name, type) {
+        var RosService = function(name, type) {
             this._name = name;
             this._type = type
 
